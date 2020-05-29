@@ -54,6 +54,17 @@ Tool to do Multi-Factor Authentication (MFA) in CLI.
     Show one time password.
     ```bash
     $ python ~/bin/mfa/main.py
+    +---------------+--------+
+    |     Name      |  Code  |
+    +===============+========+
+    | Example MFA 1 | xxxxxx |
+    +---------------+--------+
+    | Example MFA 2 | xxxxxx |
+    +---------------+--------+
+    | Demo MFA One  | xxxxxx |
+    +---------------+--------+
+    | Demo MFA Two  | xxxxxx |
+    +---------------+--------+
     ```
 
     It also feasible to narrow down the list.
