@@ -1,4 +1,5 @@
 <a href="https://codeclimate.com/github/tkibe/mfa/maintainability"><img src="https://api.codeclimate.com/v1/badges/4f6fc2e2e42caf73a82c/maintainability" /></a>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Documents in English](https://img.shields.io/badge/document-en__US-brightgreen.svg)
 
 # mfa
