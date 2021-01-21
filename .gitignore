@@ -1,1 +1,7 @@
+__pycache__
+*.pyc
+.env
+.mypy_cache
+.vscode
+
 auth.yml

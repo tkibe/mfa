@@ -1,4 +1,4 @@
-passlib==1.7.1
-texttable==1.6.1
-PyYAML==5.3.1
+ansible==2.9.13
 ansible-vault==1.2.0
+passlib==1.7.4
+texttable==1.6.3

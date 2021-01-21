@@ -2,6 +2,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Documents in English](https://img.shields.io/badge/document-en__US-brightgreen.svg)
 
+![Python Version](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-brightgreen.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 # mfa
 
 Tool to do Multi-Factor Authentication (MFA) in CLI.
@@ -13,7 +16,7 @@ Tool to do Multi-Factor Authentication (MFA) in CLI.
 ## Required environment
 
 - OS X, Linux
-- Python 3.x
+- Python 3.6+
 
 ## Basic Setup
 
@@ -38,28 +41,36 @@ Tool to do Multi-Factor Authentication (MFA) in CLI.
 
 3) Simply setting the "MFA" name and secret. (YAML format)
 
-
-    This example defines a key "Demo MFA 1" with value MFA secret key, a key "Demo MFA 2" with value MFA secret key that is itself set of key/value pairs.   
+   This example defines a key "Demo MFA 1" with value MFA secret key, a key "Demo MFA 2" with value MFA secret key that is itself set of key/value pairs.  
     To encrypt a key/value pairs, use "ansible-vault" to set a password.
-    ```bash
-    e.g.)
-    $ echo "Demo MFA 1: z7EKrWNx2T86FcLrNyiRKSnXVawe8kHx" >> demo/example.yml
-    $ echo "Demo MFA 2: jJNHhNBYujPFhKt4c3MC7Sk7QuTd53S8" >> demo/example.yml
-    $ ansible-vault encrypt demo/example.yml
-    New Vault password:
-    Confirm New Vault password:
-    ```
+
+   ```bash
+   e.g.)
+   $ echo "Demo MFA 1: z7EKrWNx2T86FcLrNyiRKSnXVawe8kHx" >> auth.yml
+   $ echo "Demo MFA 2: jJNHhNBYujPFhKt4c3MC7Sk7QuTd53S8" >> auth.yml
+   $ ansible-vault encrypt auth.yml
+   New Vault password:
+   Confirm New Vault password:
+   ```
+
+   **_Note_**: To add a new MFA, decrypt it using the following command, and then encrypt it again:
+
+   ```bash
+   $ ansible-vault decrypt auth.yml
+   ```
+
+   [Official Ansible Vault Documentation](https://docs.ansible.com/ansible/latest/user_guide/vault.html)
 
 4. To run this tool, you need to set valid environment variable "MFA_FILE" beforehand.
 
    ```bash
    e.g.)
-   $ export MFA_FILE=~/bin/mfa/demo/example.yml
+   $ export MFA_FILE=~/bin/mfa/auth.yml
    ```
 
 5. Can be executed when the setting is completed.
 
-    Enter the password you have set for "ansible-vault" and you will see the one-time password.
+   Enter the password you have set for "ansible-vault" and you will see the one-time password.
 
    ```bash
    $ python ~/bin/mfa/mfa/main.py
@@ -92,5 +103,4 @@ If you want to use it permanently, add the setting to `~/.bash_profile`.
 ```
 $ echo "export MFA_FILE=~/bin/mfa/auth.yml" >> ~/.bash_profile
 $ echo 'alias mfa="python ~/bin/mfa/mfa/main.py"' >> ~/.bash_profile
-$ echo "<Your secret key>: xxxxxxxxxx" >> ~/bin/mfa/auth.yml
 ```
